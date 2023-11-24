@@ -41,6 +41,16 @@ jobs:
         sphinx-build -q -W -b dirhtml -d _build/doctrees . _build/html
         cd ../
 
+    - name: Deploy docs to GitHub Pages
+      if: github.ref == 'refs/heads/master'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs/_build/html
+        user_name: QubitPi
+        user_email: jack20220723@gmail.com
+        cname: writethedocs.qubitpi.org
+
     # Upload performance is awful on the many small files our build generates,
     # so it's compressed locally before uploading
     # we archive the html and set it as an artifact prior to checking the links.

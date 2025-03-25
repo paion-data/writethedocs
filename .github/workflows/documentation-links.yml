@@ -13,5 +13,5 @@ jobs:
       # make sure "Build pull requests for this project" is checked
       - uses: readthedocs/actions/preview@v1
         with:
-          project-slug: "qubitpi-writethedocs"
+          project-slug: "paion-data-writethedocs"
           single-version: "true"

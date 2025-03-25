@@ -1,8 +1,6 @@
 name: Read the Docs Pull Request Preview
 on:
-  pull_request_target:
-    types:
-      - opened
+  pull_request:
 
 permissions:
   pull-requests: write
@@ -11,7 +9,9 @@ jobs:
   documentation-links:
     runs-on: ubuntu-latest
     steps:
+      # Under https://app.readthedocs.org/dashboard/<project-slug>/pull-requests/
+      # make sure "Build pull requests for this project" is checked
       - uses: readthedocs/actions/preview@v1
         with:
-          project-slug: "writethedocs-www"
-          single-version: "true" # Has to be a string value.
+          project-slug: "qubitpi-writethedocs"
+          single-version: "true"
